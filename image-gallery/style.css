@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+.imageTitle {
+    text-align: center;
+    font-size: 4rem;
+    color: blueviolet;
+    
+}
+
+.imageDiv {
+    width: 50%;
+    margin: 10px auto;
+}
+
+img {
+    width: 100%;
+    border-radius: 30px;
+    margin: 10px 0;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 100px;
+
+  }
+  .loader::before , .loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 7px solid #FFF;
+    animation: prixClipFix 2s linear infinite ;
+  }
+  .loader::after{
+    border-color: blueviolet;
+    animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
+    inset: 7px;
+  }
+
+  @keyframes rotate {
+    0%   {transform: rotate(0deg)}
+    100%   {transform: rotate(360deg)}
+  }
+
+  @keyframes prixClipFix {
+      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+  }
+
+
+  @media screen and (max-width:768px) {
+    .imageTitle {
+      font-size: 2rem;
+    }
+
+    .imageDiv {
+      width: 90%;
+
+    }
+  }
